@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TodoItem, TodolistService } from './todolist.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'l3m-tp3-todolist-2023';
+  nextTodo = "";
+
+  constructor(public tdls: TodolistService) {}
+
+  trackById(i: number, item: TodoItem): number {
+    return item.id;
+  }
 }
